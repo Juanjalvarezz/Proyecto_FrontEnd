@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 // Middlewares de JSON web token
 function generateAccessToken(data) {
@@ -27,6 +28,19 @@ function authenticate(req, res, next) {
   });
 }
 
+function generateToken(user) {
+  const payload = {
+    id: user.id,
+    username: user.username,
+    email: user.email
+  };
+  const secret = process.env.TOKEN_SECRET;
+  const options = {
+    expiresIn: "1h"
+  };
+  return jwt.sign(payload, secret, options);
+}
+
 // Middleware para la gestion de errores
 function errorHandler(err, req, res, next) {
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
@@ -43,9 +57,43 @@ function notFound(req, res, next) {
   next(error);
 }
 
+// Funcionalidad de Bcrypt para las contraseñas
+function encryptPassword(password) {
+  return new Promise((resolve, reject) => {
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) {
+        reject(err);
+      } else {
+        bcrypt.hash(password, salt, (err, hash) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(hash);
+          }
+        });
+      }
+    });
+  });
+}
+
+function comparePassword(password, hash) {
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(password, hash, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+}
+
 module.exports = {
   notFound,
   errorHandler,
   generateAccessToken,
   authenticate,
+  generateToken,
+  comparePassword,
+  encryptPassword
 };

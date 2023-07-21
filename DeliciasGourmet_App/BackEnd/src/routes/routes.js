@@ -3,10 +3,16 @@ var router = express.Router();
 const { authenticate } = require('../../middlewares')
 //Controladores de Index
 const {index} = require('../controllers/index')
+const {register, login} = require('../controllers/auth')
+const {getUser} = require('../controllers/users')
 
 //Rutas de Index
-router.get("/",index);
+router.get("/", index);
 
-router.get("/ruta-protegida", authenticate, index);
+router.post("/registro", register);
+
+router.post("/login", login);
+
+router.get("/usuario", authenticate, getUser);
 
 module.exports = router;
