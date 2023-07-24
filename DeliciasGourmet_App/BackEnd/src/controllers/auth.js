@@ -2,7 +2,7 @@ const {
   encryptPassword,
   generateToken,
   comparePassword,
-} = require("../../middlewares");
+} = require("../middlewares/middlewares");
 
 const register = async (req, res) => {
   try {
