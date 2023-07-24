@@ -1,3 +1,4 @@
+import Admin from '../components/Admin';
 import Footer from '../components/Footer';
 import Modos from '../components/Modos';
 import Nav_Bar from '../components/Nav_Bar'
@@ -8,7 +9,7 @@ import Slider from '../components/Slider';
 
 
 // Exports
-export default function DeliciasGourmet() {
+export default function AdminPage() {
 
   return (
     <> 
@@ -17,6 +18,7 @@ export default function DeliciasGourmet() {
       </header>
 
       <main>
+        <Admin />
           <Slider />
           <Modos />
           <Recetas />
@@ -29,5 +31,3 @@ export default function DeliciasGourmet() {
     </>
   );
 }
-
-
