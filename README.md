@@ -5,9 +5,9 @@
 
 - Adolfo Ochoa 30.302.062
 - Alfonso Castellano 30.302.065
-- Gabriel Calderón 30976470
+- Gabriel Calderón 30.976.470
 - Jose Mauricio Camacho  29.739.132
-- Juan Sarmiento 30258972
+- Juan Sarmiento 30.258.972
 - Yetzenia Mendoa 27.268.361
 
 # Comandos
