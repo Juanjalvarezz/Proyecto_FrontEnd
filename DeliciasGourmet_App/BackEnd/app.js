@@ -2,11 +2,14 @@ var express = require("express");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const cors = require("cors");
+const { swaggerDocs } = require("./swagger");
 require("dotenv").config();
+
+const port = process.env.PORT;
 
 var indexRouter = require("./src/routes/routes");
 
-const middlewares = require('./middlewares');
+const middlewares = require("./src/middlewares/middlewares");
 
 var app = express();
 
@@ -18,7 +21,13 @@ app.use(cors());
 
 app.use("/", indexRouter);
 
-app.use(middlewares.notFound);
-app.use(middlewares.errorHandler);
+// app.use(middlewares.notFound);
+// app.use(middlewares.errorHandler);
+
+app.listen(app.get("port"), () => {
+  console.log(`[Running] - PORT: ${port}`);
+  console.log("[Link]    " + "http://localhost:" + port);
+  swaggerDocs(app, port);
+});
 
 module.exports = app;
