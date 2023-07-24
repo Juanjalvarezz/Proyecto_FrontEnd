@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { authenticate } = require('../../middlewares')
+const { authenticate } = require('../middlewares/middlewares')
 //Controladores de Index
 const {index} = require('../controllers/index')
 const {register, login} = require('../controllers/auth')
