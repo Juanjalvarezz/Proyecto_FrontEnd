@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node src/index.js",
-    "server": "nodemon src/index.js"
+    "start": "node ./bin/www",
+    "server": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
