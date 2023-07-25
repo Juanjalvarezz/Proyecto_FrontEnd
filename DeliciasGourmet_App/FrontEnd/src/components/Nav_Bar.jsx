@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 export default function Nav_Bar() {
   const toggleButton = document.getElementById("button-menu");
@@ -8,29 +8,33 @@ export default function Nav_Bar() {
 
   return (
     <header className="main-header">
-      <div className="main-logo">{<img src={logo}  alt="logo"/>}</div>
-      <nav id="nav" className="main-nav" onClick={() => {
-        if(e.target.id === 'nav'){
-          navWrapper.classList.remove('show')
-          toggleButton.classList.remove('close')
-        }
-      }}>
-
+      <div className="main-logo">{<img src={logo} alt="logo" />}</div>
+      <nav
+        id="nav"
+        className="main-nav"
+        onClick={(e) => {
+          if (e.target.id === "nav") {
+            navWrapper.classList.remove("show");
+            toggleButton.classList.remove("close");
+          }
+        }}
+      >
         <div className="nav-links">
-          <a className="link-item active">
-            <Link to="/">Inicio</Link>
-          </a>
-
-          <a className="link-item">
-            <Link to="/Recetario">Recetario</Link>
-          </a>
-
-          <a className="link-item">
-            <Link to="/AboutUs">About Us</Link>
-          </a>
+          <Link to="/" className="link-item active">
+            Inicio
+          </Link>
+          <Link to="/Recetario" className="link-item">
+            Recetario
+          </Link>
+          <Link to="/AboutUs" className="link-item">
+            About Us
+          </Link>
+          <Link to="/Login" className="link-item">
+            Iniciar Sección
+          </Link>
         </div>
       </nav>
-    <Outlet />
+      <Outlet />
       <button
         id="button-menu"
         className="button-menu"

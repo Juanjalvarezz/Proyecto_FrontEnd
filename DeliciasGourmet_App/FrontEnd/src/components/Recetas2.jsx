@@ -80,8 +80,8 @@ function Recetas2() {
         </section>
 
         <div>
-    <div class="card-form">
-        <p class="heading-form">Quieres que subamos alguna receta? Dinosla Aqui!</p>
+    <div className="card-form">
+        <p className="heading-form">Quieres que subamos alguna receta? Dinosla Aqui!</p>
             <div className="card-form">
                 <div className="input-div">
                     <input type="text" className="input" placeholder="Nombre" />
