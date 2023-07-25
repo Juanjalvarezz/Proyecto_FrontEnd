@@ -32,6 +32,9 @@ export default function Nav_Bar() {
           <Link to="/Login" className="link-item">
             Iniciar Sección
           </Link>
+          <Link to="/Register" className="link-item">
+            Registrarse
+          </Link>
         </div>
       </nav>
       <Outlet />
