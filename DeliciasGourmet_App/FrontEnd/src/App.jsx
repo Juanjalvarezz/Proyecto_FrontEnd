@@ -5,6 +5,7 @@ import cargando from "./assets/cargando.png"
 import AdminPage from './views/AdminPage';
 import Recetario from './views/Recetario';
 import Login from './views/Login';
+import Register from './views/Register'
 const DeliciasGourmet = lazy(() => import("./views/DeliciasGourmet"))
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='/' element={<DeliciasGourmet />} />
         <Route path='Recetario' element={<Recetario />} />
         <Route path='Login' element={<Login />} />
+        <Route path='Register' element={<Register />} />
     </Routes>
     </Suspense>
   );
