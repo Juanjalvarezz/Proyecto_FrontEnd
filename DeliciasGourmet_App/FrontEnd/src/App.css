@@ -11,6 +11,15 @@ body {
   font-family: Verdana;
 }
 
+
+/* Darkmode */
+body.oscuro .btn-oscuro{
+  background-color: white;
+}
+body.oscuro .icon_mode svg path{
+  color: black;
+}
+
 /*Lazy Loader*/
 
 .LazyLoader {
@@ -481,7 +490,7 @@ body {
   .btn-oscuro {
     background-color: black;
     border: none;
-    padding: 20px;
+    padding: 10px;
     border-radius: 50%;
     cursor: pointer;
   }

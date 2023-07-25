@@ -4,9 +4,8 @@ import { lazy, Suspense } from 'react';
 import cargando from "./assets/cargando.png"
 import AdminPage from './views/AdminPage';
 import Recetario from './views/Recetario';
+import Login from './views/Login';
 const DeliciasGourmet = lazy(() => import("./views/DeliciasGourmet"))
-
-
 
 
 function App() {
@@ -19,6 +18,7 @@ function App() {
     <Routes>
       <Route path='/' element={<DeliciasGourmet />} />
         <Route path='Recetario' element={<Recetario />} />
+        <Route path='Login' element={<Login />} />
     </Routes>
     </Suspense>
   );
