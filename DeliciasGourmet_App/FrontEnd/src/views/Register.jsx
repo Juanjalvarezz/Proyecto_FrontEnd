@@ -16,6 +16,7 @@ export default function Register() {
         >
           {/* <!-- Título del formulario --> */}
           <div className="titlelogin">
+          <BiSolidLock className="icon" size="30px" />
             <h2 className="form_title">Registrarse</h2>
           </div>
 

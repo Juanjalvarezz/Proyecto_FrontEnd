@@ -19,7 +19,7 @@ export default function Login() {
             <BiSolidLock className="icon" size="30px" />
             <h2 className="form_title">Ingresar</h2>
           </div>
-          ;{/* <!-- Campos del formulario de inicio de sesión --> */}
+          {/* <!-- Campos del formulario de inicio de sesión --> */}
           <input
             className="inputl"
             type="text"
