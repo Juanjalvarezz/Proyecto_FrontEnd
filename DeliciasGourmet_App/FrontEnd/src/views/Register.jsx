@@ -10,7 +10,7 @@ export default function Register() {
       <div className="login-page">
         {/* <!-- Formulario de registro --> */}
         <form
-          class="form"
+          className="form"
           action="http://localhost:3000/register"
           method="POST"
         >
@@ -53,7 +53,7 @@ export default function Register() {
           <button type="submit" className="buttonl">Continuar</button>
 
           {/* <!-- Mensaje con enlace para iniciar sesión en lugar de registrar --> */}
-          <p class="message">
+          <p className="message">
             Ya estabas registrado?{" "}
             <Link to="/Login">¡Ingresa acá! Gracias por unirte</Link>
           </p>
