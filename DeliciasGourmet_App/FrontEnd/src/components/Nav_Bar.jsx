@@ -30,7 +30,7 @@ export default function Nav_Bar() {
             About Us
           </Link>
           <Link to="/Login" className="link-item">
-            Iniciar Sección
+            Iniciar sesión
           </Link>
           <Link to="/Register" className="link-item">
             Registrarse
