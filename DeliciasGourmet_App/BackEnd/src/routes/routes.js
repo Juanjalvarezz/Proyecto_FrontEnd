@@ -18,6 +18,10 @@ const {getUser} = require('../controllers/users')
 //Controladores de solicitudes
 const {registro} = require('../controllers/registro')
 
+//Controlador Peticiones
+
+const {solicitud} = require('../controllers/solicitud')
+
 // ----------- Rutas ---------------
 
 //Rutas de Index
@@ -35,5 +39,8 @@ router.get("/usuario", authenticate, getUser);
 
 //Rutas de registro
 router.post("/registro", registro);
+
+//Ruta Solicitud (Modificar)
+router.post("/solicitud", solicitud)
 
 module.exports = router;
