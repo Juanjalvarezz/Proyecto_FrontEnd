@@ -4,6 +4,7 @@ var logger = require("morgan");
 const cors = require("cors");
 const { swaggerDocs } = require("./swagger");
 require("dotenv").config();
+const dbconnection = require('./src/config/conexion')
 
 const port = process.env.PORT;
 
@@ -29,5 +30,7 @@ app.listen(app.get("port"), () => {
   console.log("[Link]    " + "http://localhost:" + port);
   swaggerDocs(app, port);
 });
+
+dbconnection()
 
 module.exports = app;
