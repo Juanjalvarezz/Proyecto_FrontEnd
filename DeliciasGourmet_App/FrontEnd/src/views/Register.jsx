@@ -2,11 +2,16 @@ import "../Views.css";
 import { Link } from "react-router-dom";
 import { BiSolidLock } from "react-icons/bi";
 import Modos from "../components/Modos";
+import Footer from "../components/Footer"
+import Nav_Bar from "../components/Nav_Bar"
+import register from "../assets/register.png"
 
 // Exports
 export default function Register() {
   return (
     <>
+    < Nav_Bar/> 
+    <div className="login-display">
       <div className="login-page">
         {/* <!-- Formulario de registro --> */}
         <form
@@ -60,7 +65,12 @@ export default function Register() {
           </p>
         </form>
       </div>
+      <div>
+            <img className="deco-img" src={register} alt="login" />
+        </div>
+      </div>
       <Modos />
+      <Footer />
     </>
   );
 }
