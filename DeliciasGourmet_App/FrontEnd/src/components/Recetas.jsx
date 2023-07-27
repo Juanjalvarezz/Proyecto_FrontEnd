@@ -1,9 +1,9 @@
 import React from 'react'
 import cremaCalabaza  from "../assets/cremaCalabaza.jpg"
-import SalmonHorno  from "../assets/SalmonHorno.jpg"
-import TartaletasManzana  from "../assets/TartaletasManzana.jpg"
-import TostadaQueso  from "../assets/TostadaQueso.jpg"
-import ColiflorHorno  from "../assets/ColiflorHorno.png"
+import SalmonHorno  from "../assets/salmonHorno.jpg"
+import TartaletasManzana  from "../assets/tartaletasManzana.jpg"
+import TostadaQueso  from "../assets/tostadaQueso.jpg"
+import ColiflorHorno  from "../assets/coliflorHorno.png"
 
 function Recetas() {
   return (

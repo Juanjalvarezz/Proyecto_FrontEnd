@@ -1,5 +1,5 @@
 import React from 'react'
-import Rollitos from "../assets/Rollitos.jpg"
+import Rollitos from "../assets/rollitos.jpg"
 import guacamole from "../assets/guacamole.jpg"
 import miniPizza from "../assets/miniPizza.jpeg"
 import platoVerde from "../assets/platoVerde.jpg"
