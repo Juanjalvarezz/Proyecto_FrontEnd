@@ -3,22 +3,34 @@ const {
   generateToken,
   comparePassword,
 } = require("../middlewares/middlewares");
+const model = require('../models/user');
 
 const register = async (req, res) => {
+  const role = "User";
   try {
-    const { username, email, password } = req.body;
-    if (!username || !email || !password) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       return res.status(400).json({ message: "Faltan datos" });
     }
 
     const hash = await encryptPassword(password);
 
-    // POR HACER: Guardar usuario en la base de datos
-    // const user = await User.create({ username, email, password: hash });
-    const user = { username, email, password }
+    const user = { name, email, 'password':hash, role}
+    const data = new model(user)
 
     const token = generateToken(user);
-    res.status(201).json({ token });
+
+    console.log(hash,token,user)
+    try {
+      //Se procede a guardar
+      await data.save();
+      //En tal caso todo haya salido bien
+      res.status(200).json({message: "Registro Exitoso",token});
+    } catch (error) {
+      //Caso contrario
+      console.log('Error', error);
+      res.status(500).json({message: "Error al guardar el documento"});
+    }    
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

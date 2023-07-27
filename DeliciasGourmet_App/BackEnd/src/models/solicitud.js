@@ -15,7 +15,7 @@ const SolicitudSchemas = new mongoose.Schema(
             type: String,
             unique: true
         },
-        Suggestion:{
+        suggestion:{
             type: String
         }
     }
