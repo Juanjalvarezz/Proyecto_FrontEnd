@@ -428,6 +428,44 @@
   color: black;
 }
 
+/*Usado en el About*/
+.alineacion-titulo{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+/*About*/
+.Titulo-About{
+  font-size: 40px;
+  background-color: #00529e;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  width: 95%;
+  box-shadow: 0px 5px 5px black;
+}
+
+/*ABOUT*/
+.about-contenedor{
+  background-color: #102664;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px black;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 95%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.about-contenedor ul{
+  margin-left: 15px;
+}
+
 @media screen and (max-width: 550px) {
   .login-display {
     display: grid;
