@@ -15,9 +15,6 @@ const {register, login} = require('../controllers/auth')
 //Controladores de usuarios
 const {getUser} = require('../controllers/users')
 
-//Controladores de solicitudes
-const {registro} = require('../controllers/registro')
-
 //Controlador Peticiones
 
 const {solicitud} = require('../controllers/solicitud')
@@ -28,17 +25,13 @@ const {solicitud} = require('../controllers/solicitud')
 router.get("/", index);
 
 //Rutas de registro
-// Esta comentada mientras se prueba con la otra
-// router.post("/registro", register);
+router.post("/registro", register);
 
 //Rutas de login
 router.post("/login", login);
 
 //Rutas de usuario
 router.get("/usuario", authenticate, getUser);
-
-//Rutas de registro
-router.post("/registro", registro);
 
 //Ruta Solicitud (Modificar)
 router.post("/solicitud", solicitud)
