@@ -1,13 +1,51 @@
+import { useState } from "react";
 import "../Views.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiSolidLock } from "react-icons/bi";
 import Modos from '../components/Modos'
 import Footer from "../components/Footer"
 import Nav_Bar from "../components/Nav_Bar"
 import login from "../assets/login.png"
+import Swal from 'sweetalert2'
 
 // Exports
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
+  const navigate=useNavigate();
+
+  const inicio = async (e) => {
+    e.preventDefault();
+    const data = {
+      email,
+      password,
+    };
+
+    const res = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }).then((respuesta) => respuesta.json());
+
+    if (res.status !== 200) {
+       Swal.fire({
+         title: res.message,
+         icon: "error",
+         timer: 3000,
+         showConfirmButton: true,
+       });
+     } else {
+       Swal.fire({
+         title: res.message,
+         icon: "success",
+         timer: 3000,
+         showConfirmButton: true,
+       });
+       sessionStorage.setItem('Token',res.token)
+       navigate('/Admin')
+     }
+  };
+
   return (
     <>
     < Nav_Bar/> 
@@ -15,9 +53,7 @@ export default function Login() {
         <div className="login-page">
           {/* <!-- Formulario de inicio de sesión --> */}
           <form
-            className="form"
-            action="http://localhost:3000/login"
-            method="post"
+            className="form" onSubmit={(e) => inicio(e)}
           >
             {/* <!-- Título del formulario --> */}
             <div className="titlelogin">
@@ -28,9 +64,10 @@ export default function Login() {
             <input
               className="inputl"
               type="text"
-              name="usuario"
-              placeholder="Nombre de usuario"
+              name="correo"
+              placeholder="Ingrese su correo"
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="inputl"
@@ -38,6 +75,7 @@ export default function Login() {
               name="contraseña"
               placeholder="Contraseña"
               required
+              onChange={(e) => setPass(e.target.value)}
             />
             {/* <!-- Botón para enviar el formulario --> */}
             <button className="buttonl" type="submit" name="send2">
