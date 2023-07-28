@@ -8,14 +8,14 @@ const model = require('../models/user');
 const register = async (req, res) => {
   const role = "User";
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone, username } = req.body;
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "Faltan datos" });
+      return res.status(400).json({ message: "Faltan datos", status: 400});
     }
 
     const hash = await encryptPassword(password);
 
-    const user = { name, email, 'password':hash, role}
+    const user = { name, email, 'password':hash, role,phone,username}
     const data = new model(user)
 
     const token = generateToken(user);
@@ -25,11 +25,11 @@ const register = async (req, res) => {
       //Se procede a guardar
       await data.save();
       //En tal caso todo haya salido bien
-      res.status(200).json({message: "Registro Exitoso",token});
+      res.status(200).json({message: "Registro Exitoso",token, status: 200});
     } catch (error) {
       //Caso contrario
       console.log('Error', error);
-      res.status(500).json({message: "Error al guardar el documento"});
+      res.status(500).json({message: "Error al guardar el documento", status: 500});
     }    
   } catch (error) {
     res.status(500).json({ message: error.message });
