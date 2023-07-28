@@ -6,9 +6,6 @@ var router = express.Router();
 //Middlewares
 const { authenticate } = require('../middlewares/middlewares')
 
-//Controladores de Index
-const {index} = require('../controllers/index')
-
 //Controladores de authentication
 const {register, login} = require('../controllers/auth')
 
@@ -20,9 +17,6 @@ const {getUser} = require('../controllers/users')
 const {solicitud} = require('../controllers/solicitud')
 
 // ----------- Rutas ---------------
-
-//Rutas de Index
-router.get("/", index);
 
 //Rutas de registro
 router.post("/registro", register);
