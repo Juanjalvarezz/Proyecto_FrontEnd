@@ -38,7 +38,7 @@ export default function Register() {
          title: res.message,
          icon: "error",
          timer: 3000,
-         showConfirmButton: false,
+         showConfirmButton: true,
        });
      } else {
        Swal.fire({
