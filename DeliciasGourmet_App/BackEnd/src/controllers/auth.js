@@ -4,6 +4,7 @@ const {
   comparePassword,
 } = require("../middlewares/middlewares");
 const model = require('../models/user');
+const mongoose = require('mongoose');
 
 const register = async (req, res) => {
   const role = "User";
@@ -40,26 +41,38 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      return res.status(400).json({ message: "Faltan datos" });
+      return res.status(400).json({ message: "Faltan datos", status: 400});
     }
 
-    // POR HACER: Buscar el usuario en la base de datos
-    // const user = await User.findOne({ where: { email } });
-    // if (!user) {
-    //   return res.status(404).json({ message: "Usuario no encontrado" });
-    // }
+    const datas = async (dato) => {
+      const documents = await model.find({"email": dato})
+      return documents;
+    }
+    
+    const data = await datas(email)
+
+    if (!data) {
+       return res.status(404).json({ message: "Usuario o contraseña incorrectos", status: 404 });
+    }
+
     const user = { email, password }
 
     // const match = await comparePassword(password, user.password);
-    const match = await comparePassword(password, "$2b$10$UvEaSWitHEv4mn6AeTvQ5e6CJ6PjpPm5WbPib2PxDAzV12Dza2QLa");
+    const match = await comparePassword(user.password, data[0].password);
     if (!match) {
-      return res.status(401).json({ message: "Contraseña incorrecta" });
+      return res.status(401).json({ message: "Contraseña o Usuario incorrecto",status: 401});
     }
 
-    const token = generateToken(user);
-    res.status(200).json({ token });
+    const data2 = {
+      username: data[0].username,
+      email: data[0].email,
+      role: data[0].role
+    }
+
+    const token = generateToken(data2);
+    res.status(200).json({ token ,message: "Inicio de Sección Exitoso", status: 200 });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Contraseña o Usuario incorrecto", message1: error.message, status: 500 });
   }
 };
 
