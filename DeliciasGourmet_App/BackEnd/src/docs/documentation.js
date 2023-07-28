@@ -91,3 +91,45 @@
  *         description: Error al guardar el documento
  */
 
+
+
+//Esquema de Datos de los Login
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Login:
+ *       type: object
+ *       properties:
+ *         Login:
+ *           type: string
+ *           description: Login (Tabla - Login)
+ *       required:
+ *         -email
+ *         -password
+ *       example:
+ *         email: "simoncito@gmail.com"
+ *         password: "1234"
+ */
+
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Crear un nuevo usuario
+ *     tags: [Login]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Login'
+ *     responses:
+ *       200:
+ *         description: Usuario Loggeado
+ *       400:
+ *         description: Error al guardar el documento
+ */
+
