@@ -12,8 +12,7 @@ const SolicitudSchemas = new mongoose.Schema(
             type: Number
         },
         email:{
-            type: String,
-            unique: true
+            type: String
         },
         suggestion:{
             type: String
