@@ -1,4 +1,4 @@
-//Esquema de Datos de los Bancos
+//Esquema de Datos de los Usuarios
 
 /**
  * @swagger
@@ -9,7 +9,7 @@
  *       properties:
  *         registro_agregar:
  *           type: string
- *           description: setup_banco_file (Tabla - registro_agregar)
+ *           description: registrar_usuario (Tabla - registro_agregar)
  *       required:
  *         -name
  *         -email
@@ -43,3 +43,51 @@
  *       400:
  *         description: Error al guardar el documento
  */
+
+
+//Esquema de Datos de los Solicitud
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Agregar solicitud:
+ *       type: object
+ *       properties:
+ *         agregar_solicitud:
+ *           type: string
+ *           description: agregar_solicitud (Tabla - agregar_solicitud)
+ *       required:
+ *         -name
+ *         -lastname
+ *         -age
+ *         -email
+ *         -suggestion
+ *       example:
+ *         name: "Simon"
+ *         lastname: "Trujillo"
+ *         age: 16
+ *         email: "simoncito@gmail.com"
+ *         suggestion: "Por favor, subir receta de Panquecas"
+ */
+
+/**
+ * @swagger
+ * /solicitud:
+ *   post:
+ *     summary: Crear una nueva Solicitud
+ *     tags: [Agregar solicitud]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Agregar solicitud'
+ *     responses:
+ *       200:
+ *         description: Solicitud Enviada
+ *       400:
+ *         description: Error al guardar el documento
+ */
+
