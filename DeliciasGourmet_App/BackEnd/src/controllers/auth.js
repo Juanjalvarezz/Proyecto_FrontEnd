@@ -26,7 +26,7 @@ const register = async (req, res) => {
       //Se procede a guardar
       await data.save();
       //En tal caso todo haya salido bien
-      res.status(200).json({message: "Registro Exitoso",token, status: 200});
+      res.status(200).json({message: "Registro Exitoso",token, userActive:user, status: 200});
     } catch (error) {
       //Caso contrario
       console.log('Error', error);
