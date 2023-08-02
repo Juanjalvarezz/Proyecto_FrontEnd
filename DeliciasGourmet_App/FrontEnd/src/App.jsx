@@ -19,9 +19,9 @@ function App() {
       <img src={cargando}  alt="logo"/>
       </div> }>
     <Routes>
-      <Route path='/' element={<DeliciasGourmet />} />
+      <Route path='/' element={<Login />} />
+        <Route path='Inicio' element={<DeliciasGourmet />} />
         <Route path='Recetario' element={<Recetario />} />
-        <Route path='Login' element={<Login />} />
         <Route path='Register' element={<Register />} />
         <Route path='AboutUs' element={<About />} />
         <Route path='Admin' element={<AdminPage />} />
