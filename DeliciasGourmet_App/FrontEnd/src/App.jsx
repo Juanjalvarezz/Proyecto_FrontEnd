@@ -1,17 +1,27 @@
-import { useState } from 'react'
-import {Route, Routes} from 'react-router-dom'
-import { lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react'
+import { Routes, Route, Navigate} from 'react-router-dom'
+import { Suspense } from 'react';
 import cargando from "./assets/cargando.png"
 
-const DeliciasGourmet = lazy(() => import("./views/DeliciasGourmet"))
-const About = lazy(() => import("./views/About"))
-const AdminPage = lazy(() => import("./views/AdminPage"))
-const Recetario = lazy(() => import("./views/Recetario"))
-const Login = lazy(() => import("./views/Login"))
-const Register = lazy(() => import("./views/Register"))
+
+import { AppRoutes } from './routes/AppRoutes';
+import { LoginRoutes } from './routes/LoginRoutes';
+
+export const App = () => {
+  const [logueado, setlogueado] = useState(false)
 
 
-function App() {
+  useEffect(() => {
+    const token = localStorage.getItem('Token');
+    if (token) {
+      setlogueado(true);
+    }
+  }, [localStorage.getItem('Token')]);
+
+
+  const logout = () => {
+    setlogueado(false)
+  }
 
   return (
     <Suspense fallback={<div className='LazyLoader'>
@@ -19,15 +29,12 @@ function App() {
       <img src={cargando}  alt="logo"/>
       </div> }>
     <Routes>
-      <Route path='/' element={<Login />} />
-        <Route path='Inicio' element={<DeliciasGourmet />} />
-        <Route path='Recetario' element={<Recetario />} />
-        <Route path='Register' element={<Register />} />
-        <Route path='AboutUs' element={<About />} />
-        <Route path='Admin' element={<AdminPage />} />
+        {
+          logueado ? <Route  path="/*" element={<AppRoutes logout={logout}/>}/> : <Route path="/*" element={<LoginRoutes/>}/>
+        }
+    <Route  path="/*" element={<Navigate to='/'/>}/>
+
     </Routes>
     </Suspense>
   );
 }
-
-export default App

@@ -1,10 +1,39 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/logo.png";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 
-export default function Nav_Bar() {
-  const toggleButton = document.getElementById("button-menu");
+import logo from "../assets/logo.png";
+import { BiLogOut } from "react-icons/bi";
+
+
+export const Nav_Bar = ( {logout} ) => {
+const toggleButton = document.getElementById("button-menu");
   const navWrapper = document.getElementById("nav");
+  const navigate = useNavigate();
+  const [Rol, setRol] = useState()
+
+  useEffect(() => {
+    const Role = localStorage.getItem('Role');
+    if (Role) {
+      setRol(Role);
+    }
+  }, [localStorage.getItem('Role')]);
+
+
+  const [logueado, setlogueado] = useState(false)
+
+  
+  const logoutClear = () => {
+    localStorage.clear();
+    logout()
+    navigate('/');
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('Token');
+    if (token) {
+      setlogueado(true);
+    }
+  }, []);
 
   return (
     <header className="main-header">
@@ -20,21 +49,44 @@ export default function Nav_Bar() {
         }}
       >
         <div className="nav-links">
-          <Link to="/" className="link-item active">
-            Iniciar sesión
-          </Link>
-          <Link to="/Register" className="link-item">
-            Registrarse
-          </Link>
-          <Link to="/Inicio" className="link-item">
-          Inicio
-          </Link>
-          <Link to="/Recetario" className="link-item">
-          Recetario
-          </Link>
-          <Link to="/AboutUs" className="link-item">
-          About Us
-          </Link>
+
+          {
+            logueado ?
+            (
+              <>
+                <Link to="/Inicio" className="link-item">
+                Inicio
+                </Link>
+                <Link to="/Recetario" className="link-item">
+                Recetario
+                </Link>
+                <Link to="/AboutUs" className="link-item">
+                About Us
+                </Link>
+                {
+                  Rol === "Admin" && (
+                    <Link to="/Admin" className="link-item">
+                      Admin
+                    </Link>
+                  )
+                }
+                <a className="pointer" onClick={logoutClear}>
+                <BiLogOut color="#fff" size="30px"/>
+                </a>
+              </>
+            )
+            :
+            (
+              <>
+                  <Link to="/" className="link-item active">
+                  Iniciar sesión
+                  </Link>
+                  <Link to="/Register" className="link-item">
+                    Registrarse
+                  </Link>
+              </>
+            )
+          }
         </div>
       </nav>
       <Outlet />

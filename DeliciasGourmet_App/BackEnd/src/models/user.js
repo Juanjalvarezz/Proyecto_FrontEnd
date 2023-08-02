@@ -28,6 +28,10 @@ const userSchemas = new mongoose.Schema({
     type: String,
     required: true,
   },
+  gender: {
+    type: String,
+    required: true,
+  }
 });
 
 module.exports = mongoose.model("usuarios", userSchemas);

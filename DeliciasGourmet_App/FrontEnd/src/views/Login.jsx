@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiSolidLock } from "react-icons/bi";
 import Modos from '../components/Modos'
 import Footer from "../components/Footer"
-import Nav_Bar from "../components/Nav_Bar"
+import { Nav_Bar } from '../components/Nav_Bar';
 import login from "../assets/login.png"
 import Swal from 'sweetalert2'
 
 // Exports
-export default function Login() {
+export const Login = () =>{
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const navigate=useNavigate();
@@ -25,7 +25,8 @@ export default function Login() {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((respuesta) => respuesta.json());
+    })
+    .then((respuesta) => respuesta.json())
 
     if (res.status !== 200) {
        Swal.fire({
@@ -35,14 +36,16 @@ export default function Login() {
          showConfirmButton: true,
        });
      } else {
+
        Swal.fire({
          title: res.message,
          icon: "success",
          timer: 3000,
          showConfirmButton: true,
        });
-       sessionStorage.setItem('Token',res.token)
-       navigate('/Admin')
+       localStorage.setItem('Token',res.token)
+       localStorage.setItem('Role', res.userActive.role)
+       navigate('/Inicio')
      }
   };
 

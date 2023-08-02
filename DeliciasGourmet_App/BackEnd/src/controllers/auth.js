@@ -9,14 +9,14 @@ const mongoose = require('mongoose');
 const register = async (req, res) => {
   const role = "User";
   try {
-    const { name, email, password, phone, username } = req.body;
+    const { name, email, password, phone, username, gender } = req.body;
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Faltan datos", status: 400});
     }
 
     const hash = await encryptPassword(password);
 
-    const user = { name, email, 'password':hash, role,phone,username}
+    const user = { name, email, 'password':hash, role,phone,username, gender}
     const data = new model(user)
 
     const token = generateToken(user);
@@ -70,7 +70,9 @@ const login = async (req, res) => {
     }
 
     const token = generateToken(data2);
-    res.status(200).json({ token ,message: "Inicio de Sección Exitoso", status: 200 });
+
+    res.status(200).json({ token, userActive: data2 ,message: "Inicio de Sección Exitoso", status: 200 });
+
   } catch (error) {
     res.status(500).json({ message: "Contraseña o Usuario incorrecto", message1: error.message, status: 500 });
   }

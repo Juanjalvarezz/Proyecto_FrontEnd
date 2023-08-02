@@ -1,19 +1,19 @@
 import Footer from "../components/Footer";
 import Modos from "../components/Modos";
-import Nav_Bar from "../components/Nav_Bar";
+import { Nav_Bar } from '../components/Nav_Bar';
 
 // Exports
-export default function About() {
-  return (
+export const About = ({logout}) => {
+return (
     <>
-      <Nav_Bar />
+      <Nav_Bar logout={logout}/>
 
       <main>
-        <div class="main" id="Historia">
-          <h1 class="Titulo-About">¿Quienes Somos?</h1>
+        <div className="main" id="Historia">
+          <h1 className="Titulo-About">¿Quienes Somos?</h1>
         </div>
-        <section class="alineacion-titulo">
-          <div class="about-contenedor">
+        <section className="alineacion-titulo">
+          <div className="about-contenedor">
             <p>
               DeliciasGourmet es una empresa fundada a mediados del 2023, con la
               pasión por ofrecer experiencias gastronómicas excepcionales. Desde
@@ -24,11 +24,11 @@ export default function About() {
           </div>
         </section>
 
-        <div class="main" id="Misión">
-          <h1 class="Titulo-About">¿Nuestros Objetivos</h1>
+        <div className="main" id="Misión">
+          <h1 className="Titulo-About">¿Nuestros Objetivos</h1>
         </div>
-        <section class="alineacion-titulo">
-          <div class="about-contenedor">
+        <section className="alineacion-titulo">
+          <div className="about-contenedor">
             <p>
               Nuestra misión en DeliciasGourmet es satisfacer los paladares más
               exigentes al ofrecer productos artesanales y gourmet que deleiten
@@ -44,11 +44,11 @@ export default function About() {
           </div>
         </section>
 
-        <div class="main" id="Equipo">
-          <h1 class="Titulo-About">Nuestro Equipo de trabajo</h1>
+        <div className="main" id="Equipo">
+          <h1 className="Titulo-About">Nuestro Equipo de trabajo</h1>
         </div>
-        <section class="alineacion-titulo">
-          <div class="about-contenedor">
+        <section className="alineacion-titulo">
+          <div className="about-contenedor">
             <p>
               Contamos con un equipo de profesionales apasionados por la
               gastronomía y comprometidos con la calidad. Cada uno de nuestros
@@ -58,11 +58,11 @@ export default function About() {
           </div>
         </section>
 
-        <div class="main" id="Contactos">
-          <h1 class="Titulo-About">Puede Contactador a través de:</h1>
+        <div className="main" id="Contactos">
+          <h1 className="Titulo-About">Puede Contactador a través de:</h1>
         </div>
-        <section class="alineacion-titulo">
-          <div class="about-contenedor">
+        <section className="alineacion-titulo">
+          <div className="about-contenedor">
             <ul>
               <li>Dirección: Carvajal-UVM</li>
               <li>Teléfono: +584247583894</li>

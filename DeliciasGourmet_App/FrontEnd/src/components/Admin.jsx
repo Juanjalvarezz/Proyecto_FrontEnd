@@ -19,8 +19,8 @@ function Admin() {
 
 
       <div>
-        <div class="cardTitulo hover">
-            <div class="titulo-content">
+        <div className="cardTitulo hover">
+            <div className="titulo-content">
               <h1>Delicias Gourmet</h1>
               <img src={logo} alt="logo"/>
             </div>
