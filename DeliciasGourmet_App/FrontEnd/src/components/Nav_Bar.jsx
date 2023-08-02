@@ -21,19 +21,19 @@ export default function Nav_Bar() {
       >
         <div className="nav-links">
           <Link to="/" className="link-item active">
-            Inicio
-          </Link>
-          <Link to="/Recetario" className="link-item">
-            Recetario
-          </Link>
-          <Link to="/AboutUs" className="link-item">
-            About Us
-          </Link>
-          <Link to="/Login" className="link-item">
             Iniciar sesión
           </Link>
           <Link to="/Register" className="link-item">
             Registrarse
+          </Link>
+          <Link to="/Inicio" className="link-item">
+          Inicio
+          </Link>
+          <Link to="/Recetario" className="link-item">
+          Recetario
+          </Link>
+          <Link to="/AboutUs" className="link-item">
+          About Us
           </Link>
         </div>
       </nav>
