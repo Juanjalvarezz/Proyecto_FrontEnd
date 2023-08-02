@@ -5,6 +5,7 @@ import logo from "../assets/logo.png"
 
 function Admin() {
   return (
+    <div>
     <div className='contain'>
         <div className="card-2 hover">
                 <div className="card-border-top">
@@ -110,6 +111,65 @@ function Admin() {
 
 </div>
 </div>
+
+<div>
+        <div className="card-form">
+          <p className="heading-form">
+            Cargar nuevo Admin a la pagina
+          </p>
+          <div className="card-form">
+            <div className="input-div">
+              <input
+                type="text"
+                className="input"
+                placeholder="Nombre Completo"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="input"
+                type="text"
+                placeholder="Nombre de Usuario"
+                onChange={(e) => setLast(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="input"
+                type="text"
+                placeholder="Numero de telefono"
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="input"
+                type="text"
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="input"
+                type="text"
+                placeholder="Contraseña"
+                onChange={(e) => setSugg(e.target.value)}
+              />
+            </div>
+            <div className="button-div">
+              <button className="submit" onClick={(e) => solicitud(e)}>
+                Crear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
   )
 }
 
