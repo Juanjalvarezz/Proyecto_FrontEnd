@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300);
-
 .hover:hover {
   transform: scale(1.1);
 }
@@ -13,7 +12,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-left: 3%;
+  margin-left: 5%;
+  margin-bottom: 30px;
 }
 
 .contain h1 {
@@ -467,7 +467,70 @@
   margin-left: 15px;
 }
 
+/*CARGAR*/
+.App {
+  width: 70%;
+  padding: 20px;
+}
+
+.App h1 {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.mar {
+  margin-left: 35%;
+  margin-top: 10px;
+}
+
+.dropzone {
+  border: 2px dashed #007bff;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-previews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image-previews img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+
+
 @media screen and (max-width: 550px) {
+
+    /*CARGAR*/
+.App {
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.mar {
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+
   .login-display {
     display: grid;
     justify-content: center;
@@ -496,15 +559,6 @@
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
-
-
-
-  .contain {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
   }
 
   .post-card {

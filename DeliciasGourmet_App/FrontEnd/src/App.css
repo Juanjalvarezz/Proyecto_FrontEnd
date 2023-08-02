@@ -700,6 +700,7 @@ body.oscuro .icon_mode svg path{
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   transition: 0.5s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .heading-form {
@@ -709,7 +710,7 @@ body.oscuro .icon_mode svg path{
   font-size: 30px;
 }
 
-.input-div {
+.input-div  {
   display: flex;
   margin-top: 10px;
   transition: 0.5s ease-in-out;
@@ -727,6 +728,18 @@ body.oscuro .icon_mode svg path{
   font-size: 18px;
 
 }
+
+.card-form textarea{
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid white;
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  font-size: 18px;
+
+}
+
 
 .button-div {
   text-align: center;
@@ -854,7 +867,7 @@ body.oscuro .icon_mode svg path{
     height: 100%;
     padding: 5px;
     text-align: center;
-    margin-top: 10px;
+    padding-top: 20px;
   }
   
   .footer img {
@@ -1172,7 +1185,6 @@ border-radius: 15px;
   transition: 0.5s;
   margin-bottom: 10px;
   }
-
   /*Formulario*/
   .card-form {
     width: 90%;
@@ -1194,6 +1206,7 @@ border-radius: 15px;
     padding: 10px;
     font-size: 25px;
   }
+
   
   .submit {
     margin-top: 1rem;
@@ -1208,6 +1221,19 @@ border-radius: 15px;
     cursor: pointer;
     font-size: 20px;
   }
+
+  .card-form input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    font-size: 16px;
+  
+  }
+
+  
 }
   
   
