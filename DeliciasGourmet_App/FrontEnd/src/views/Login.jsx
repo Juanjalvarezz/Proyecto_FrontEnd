@@ -45,7 +45,7 @@ export const Login = () =>{
        });
        localStorage.setItem('Token',res.token)
        localStorage.setItem('Role', res.userActive.role)
-       navigate('/Inicio')
+       window.location.reload()
      }
   };
 

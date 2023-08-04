@@ -25,7 +25,7 @@ app.use("/", indexRouter);
 // app.use(middlewares.notFound);
 // app.use(middlewares.errorHandler);
 
-app.listen(app.get("port"), () => {
+app.listen(port, () => {
   console.log(`[Running] - PORT: ${port}`);
   console.log("[Link]    " + "http://localhost:" + port);
   swaggerDocs(app, port);

@@ -73,7 +73,8 @@ export const Register = () => {
          showConfirmButton: true,
        });
        localStorage.setItem('Token',res.token)
-       navigate('/Login')
+       localStorage.setItem('Role', res.userActive.role)
+       window.location.reload()
      }
   };
 

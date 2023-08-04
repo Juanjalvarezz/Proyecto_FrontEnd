@@ -18,8 +18,7 @@ const toggleButton = document.getElementById("button-menu");
     }
   }, [localStorage.getItem('Role')]);
 
-
-  const [logueado, setlogueado] = useState(false)
+  const [logueado, setlogueado] = useState(localStorage.getItem("IsLoggedIn") === "true");
 
   
   const logoutClear = () => {
@@ -28,12 +27,18 @@ const toggleButton = document.getElementById("button-menu");
     navigate('/');
   }
 
+ 
   useEffect(() => {
-    const token = localStorage.getItem('Token');
+    const token = localStorage.getItem("Token");
     if (token) {
       setlogueado(true);
+      localStorage.setItem("IsLoggedIn", "true"); // Marcar como logueado
+    } else {
+      setlogueado(false);
+      localStorage.removeItem("IsLoggedIn"); // Marcar como no logueado
     }
   }, []);
+
 
   return (
     <header className="main-header">
