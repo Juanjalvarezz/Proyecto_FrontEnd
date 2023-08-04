@@ -16,6 +16,10 @@ const {getUser} = require('../controllers/users')
 
 const {solicitud} = require('../controllers/solicitud')
 
+//Controlador Recetas
+
+const {recetasSoli} = require('../controllers/recetas')
+
 // ----------- Rutas ---------------
 
 //Rutas de registro
@@ -29,5 +33,8 @@ router.get("/usuario", authenticate, getUser);
 
 //Ruta Solicitud (Modificar)
 router.post("/solicitud", solicitud)
+
+//Rutas Recetas
+router.post("/recetas", recetasSoli)
 
 module.exports = router;
