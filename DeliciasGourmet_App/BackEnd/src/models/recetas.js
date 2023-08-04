@@ -5,7 +5,7 @@ const recetasSchemas = new mongoose.Schema(
         nombre:{
             type: String
         },
-        tiempo_Preparación:{
+        tiempo_preparación:{
             type: String        //Modificar
         },
         ingredientes:{
