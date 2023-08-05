@@ -8,27 +8,16 @@ import cerdo from "../assets/cerdo.jpg";
 import carne from "../assets/carne.jpg";
 import pollo from "../assets/pollo.jpg";
 import pescado from "../assets/pescado.jpg";
-import polloMiel from "../assets/polloMiel.jpg";
-import polloHierbas from "../assets/polloHierbas.jpg";
-import albondiga from "../assets/albondiga.jpg";
-import tacos from "../assets/tacos.jpg";
-import ceviche from "../assets/ceviche.jpg";
-import salmon from "../assets/salmonParrilla.jpg";
-import pastor from "../assets/pastor.jpg";
-import costillas from "../assets/costillas.jpg";
-import batido from "../assets/batido.jpg";
-import ensalada from "../assets/ensalada.jpg";
-import ensaladaFrutas from "../assets/ensaladafrutas.jpg";
-import yogur from "../assets/yogur.jpg";
-import mousse from "../assets/mosse.jpg";
-import flan from "../assets/flan.jpg";
-import aguacate from "../assets/aguacate.jpg";
-import platano from "../assets/platano.jpg";
 import vino from "../assets/vino.jpg";
 import air from "../assets/air.jpg";
 import frita from "../assets/frita.jpg";
+import { useQuery } from "react-query";
 
 function Recetario_Com() {
+  const recetas = useQuery("recetas", () =>
+    fetch("http://localhost:3000/listarrecetas").then((res) => res.json())
+  );
+
   return (
     <section>
       <div>
@@ -135,11 +124,37 @@ function Recetario_Com() {
         </div>
       </div>
 
-      <div>
-        
-      </div>
+      <section className="alineacion-recetas">
+        {
+          <>
+            {recetas.data && (
+              <>
+                {recetas.data.map((receta) => (
+                  <>
+                    <div className="recetas-contenedor">
+                      <div className="Contenidos-1">
+                        <h2 className="nombre">{receta.nombre}</h2>
+                        <h3>
+                          <b>Ingredientes:</b>
+                        </h3>
+                        <ul>
+                          <li>Tiempo de Preparación: {receta.tiempo_preparación}</li>
+                          {receta.ingredientes}
+                        </ul>
+                      </div>
+                      <div className="Contenidos-2">
+                        <h1>Preparacion</h1>
+                        <p>{receta.preparación}</p>
+                      </div>
+                    </div>
+                  </>
+                ))}
+              </>
+            )}
+          </>
+        }
+      </section>
     </section>
   );
 }
-
 export default Recetario_Com;
