@@ -380,11 +380,12 @@ function Admin() {
         </div>
       </div>
 
-      <div>
+     <div>
+        <h1 className="title-admin">Sugerencias</h1>
         {
-          <table>
+          <table className="Table-name">
             <thead>
-              <tr>
+              <tr className="table-tr">
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Edad</th>
