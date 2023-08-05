@@ -39,7 +39,7 @@ function Admin() {
         });
         return;
       }
-      const rol = "Admin"
+      const rol = "Admin";
       const data = {
         name,
         email,
@@ -198,7 +198,7 @@ function Admin() {
         <div className="card-form">
           <p className="heading-form">Cargar nuevo Admin a la pagina</p>
           <div className="card-form">
-            <div>
+            <div className="input-div">
               <input
                 className="inputl"
                 type="text"
@@ -207,6 +207,8 @@ function Admin() {
                 required
                 onChange={(e) => setName(e.target.value)}
               />
+            </div>
+            <div className="input-div">
               <input
                 className="inputl"
                 type="text"
@@ -215,6 +217,8 @@ function Admin() {
                 required
                 onChange={(e) => setUser(e.target.value)}
               />
+            </div>
+            <div className="input-div">
               <input
                 className="inputl"
                 type="tel"
@@ -223,6 +227,8 @@ function Admin() {
                 required
                 onChange={(e) => setPhon(e.target.value)}
               />
+            </div>
+            <div className="input-div">
               <input
                 className="inputl"
                 type="email"
@@ -231,6 +237,8 @@ function Admin() {
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
+            </div>
+            <div className="input-div">
               <input
                 className="inputl"
                 type="password"
@@ -239,28 +247,27 @@ function Admin() {
                 required
                 onChange={(e) => setPass(e.target.value)}
               />
+            </div>
+            <div className="gender-selection">
+              <label className={`gender-option ${isMale ? "selected" : ""}`}>
+                <input
+                  type="checkbox"
+                  checked={isMale}
+                  onChange={handleMaleChange}
+                />
+                Hombre
+              </label>
 
-              <div className="gender-selection">
-                <label className={`gender-option ${isMale ? "selected" : ""}`}>
-                  <input
-                    type="checkbox"
-                    checked={isMale}
-                    onChange={handleMaleChange}
-                  />
-                  Hombre
-                </label>
-
-                <label
-                  className={`gender-option ${isFemale ? "selected" : ""}`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={isFemale}
-                    onChange={handleFemaleChange}
-                  />
-                  Mujer
-                </label>
-              </div>
+              <label className={`gender-option ${isFemale ? "selected" : ""}`}>
+                <input
+                  type="checkbox"
+                  checked={isFemale}
+                  onChange={handleFemaleChange}
+                />
+                Mujer
+              </label>
+            </div>
+            <div className="button-div">
               <button className="submit" onClick={(e) => solicitud(e)}>
                 Crear
               </button>
