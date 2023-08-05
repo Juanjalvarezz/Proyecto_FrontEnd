@@ -14,13 +14,11 @@ const {getUser} = require('../controllers/users')
 
 //Controlador Peticiones
 
-const {solicitud} = require('../controllers/solicitud')
+const {solicitud} = require('../controllers/Solicitudes/solicitud')
+const {listarsolicitudes} = require('../controllers/Solicitudes/listarsolicitudes')
 
 //Controlador Recetas
-
 const {recetasSoli} = require('../controllers/Recetas/recetas')
-
-
 const {listarrecetas} = require('../controllers/Recetas/listarrecetas')
 
 
@@ -37,10 +35,10 @@ router.get("/usuario", authenticate, getUser);
 
 //Ruta Solicitud (Modificar)
 router.post("/solicitud", solicitud)
+router.get("/listarsolicitudes", listarsolicitudes)
 
 //Rutas Recetas
 router.post("/recetas", recetasSoli)
-
 router.get("/listarrecetas", listarrecetas)
 
 module.exports = router;
