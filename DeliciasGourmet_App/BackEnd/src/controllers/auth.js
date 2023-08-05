@@ -7,7 +7,14 @@ const model = require('../models/user');
 const mongoose = require('mongoose');
 
 const register = async (req, res) => {
-  const role = "User";
+  console.log(req.body)
+  let role = "";
+  if (req.body.rol == "Admin") {
+    role = "Admin";
+
+  }else{
+    role = "User";
+  }
   try {
     const { name, email, password, phone, username, gender } = req.body;
     if (!name || !email || !password) {
