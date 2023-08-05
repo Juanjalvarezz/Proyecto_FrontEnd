@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import { useState } from "react";
 import "../Views.css";
 import Swal from "sweetalert2";
+import { useQuery } from "react-query";
 
 function Admin() {
   const [username, setUser] = useState("");
@@ -128,6 +129,11 @@ function Admin() {
       });
     }
   };
+
+  const solicitudes_user = useQuery("solicitudes_user", () =>
+    fetch("http://localhost:3000/listarsolicitudes").then((res) => res.json())
+  );
+
   return (
     <div>
       <div className="contain">
@@ -372,6 +378,35 @@ function Admin() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div>
+        {
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Email</th>
+                <th>Sugerencia</th>
+              </tr>
+            </thead>
+            {solicitudes_user.data && (
+              <tbody>
+                {solicitudes_user.data.map((sol) => (
+                  <tr>
+                    <td>{sol.name}</td>
+                    <td>{sol.lastname}</td>
+                    <td>{sol.age}</td>
+                    <td>{sol.email}</td>
+                    <td>{sol.suggestion}</td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
+          </table>
+        }
       </div>
     </div>
   );
