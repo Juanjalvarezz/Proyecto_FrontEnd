@@ -18,36 +18,44 @@ function Recetas2() {
 
   const solicitud = async (e) => {
     e.preventDefault();
+    if (name && lastname && age && email && suggestion) {
+      const data = {
+        name,
+        lastname,
+        age,
+        email,
+        suggestion,
+      };
 
-    const data = {
-      name,
-      lastname,
-      age,
-      email,
-      suggestion,
-    };
+      const res = await fetch("http://localhost:3000/solicitud", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }).then((respuesta) => respuesta.json());
 
-    const res = await fetch("http://localhost:3000/solicitud", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((respuesta) => respuesta.json());
-
-    if (res.status !== 200) {
+      if (res.status !== 200) {
+        Swal.fire({
+          title: res.message,
+          icon: "error",
+          timer: 3000,
+          showConfirmButton: true,
+        });
+      } else {
+        Swal.fire({
+          title: res.message,
+          icon: "success",
+          timer: 3000,
+          showConfirmButton: true,
+        });
+        window.location.reload();
+      }
+    } else {
       Swal.fire({
-        title: res.message,
+        title: "Datos incorrectos o en blanco",
         icon: "error",
         timer: 3000,
         showConfirmButton: true,
       });
-    } else {
-      Swal.fire({
-        title: res.message,
-        icon: "success",
-        timer: 3000,
-        showConfirmButton: true,
-      });
-      window.location.reload();
     }
   };
 
