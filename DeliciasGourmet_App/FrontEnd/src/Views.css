@@ -517,6 +517,14 @@ label {
 
 @media screen and (max-width: 550px) {
 
+   .contain {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
+
     /*CARGAR*/
 .App {
   width: 90%;
