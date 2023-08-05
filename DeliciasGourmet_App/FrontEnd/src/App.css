@@ -1339,3 +1339,15 @@ margin-bottom: 10px;
 .table-tr{
   align-content: center;
 }
+
+tr{
+  text-align: center;
+}
+
+.title-admin{
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 30px;
+  color: #000
+}
