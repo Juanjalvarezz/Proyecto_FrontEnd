@@ -91,13 +91,6 @@ export const Login = () =>{
                 Crea una cuenta ¡Que Esperas!
               </Link>
             </p>
-            {/* <!-- Mensaje con enlace para volver a la página principal --> */}
-            <p className="message">
-              ¿Quieres volver a la pagina principal?{" "}
-              <Link to="/" className="a">
-                ¡¡¡Darle Click Aqui!!!
-              </Link>
-            </p>
           </form>
       </div>
         <div>
