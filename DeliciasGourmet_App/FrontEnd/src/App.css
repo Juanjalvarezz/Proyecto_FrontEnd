@@ -998,17 +998,18 @@ cursor: pointer;
 
 .Contenidos-1 {
   line-height: 50px;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 30%;
+  margin-left: 10%;
 }
 
 .Contenidos-2 {
   line-height: 50px;
-  width: 100%;
-  background-color: #00529e;
-  border-radius: 10px;
-  padding: 10px;
-  transition: transform .5s;
+    width: 50%;
+    background-color: #00529e;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform .5s;
+    margin-left: 8%;
 }
 
 .Contenidos-2:hover {
