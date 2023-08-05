@@ -19,10 +19,7 @@ export const AdminPage = ({logout}) => {
 
       <main>
         <Admin />
-          <Slider />
-          <Modos />
-          <Recetas />
-          <Recetas2 />
+        <Modos />
       </main>
 
       <footer>
