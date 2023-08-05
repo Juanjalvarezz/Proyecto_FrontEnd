@@ -12,6 +12,10 @@ function Admin() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhon] = useState("");
+  const [titulo, setTreceta] = useState("");
+  const [ingredientes, setIng] = useState("");
+  const [tiempo, setTiempo] = useState("");
+  const [preparacion, setPre] = useState("");
 
   const [isMale, setIsMale] = useState(false);
   const [isFemale, setIsFemale] = useState(false);
@@ -72,6 +76,47 @@ function Admin() {
         });
         localStorage.setItem("Token", res.token);
         localStorage.setItem("Role", res.userActive.role);
+        window.location.reload();
+      }
+    } else {
+      Swal.fire({
+        title: "Datos invalidos o en blanco",
+        icon: "error",
+        timer: 3000,
+        showConfirmButton: true,
+      });
+    }
+  };
+  const Recetas = async (e) => {
+    e.preventDefault();
+    if (titulo && tiempo && preparacion && ingredientes) {
+      const data = {
+        nombre: titulo,
+        tiempo_preparación: tiempo,
+        preparación: preparacion,
+        ingredientes: ingredientes,
+      };
+
+      const res = await fetch("http://localhost:3000/recetas", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }).then((respuesta) => respuesta.json());
+
+      if (res.status !== 200) {
+        Swal.fire({
+          title: res.message,
+          icon: "error",
+          timer: 3000,
+          showConfirmButton: true,
+        });
+      } else {
+        Swal.fire({
+          title: res.message,
+          icon: "success",
+          timer: 3000,
+          showConfirmButton: true,
+        });
         window.location.reload();
       }
     } else {
@@ -270,6 +315,59 @@ function Admin() {
             <div className="button-div">
               <button className="submit" onClick={(e) => solicitud(e)}>
                 Crear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="card-form">
+          <p className="heading-form">Agregar una nueva receta</p>
+          <div className="card-form">
+            <div className="input-div">
+              <input
+                className="inputl"
+                type="text"
+                name="titulo"
+                placeholder="Titulo de la receta*"
+                required
+                onChange={(e) => setTreceta(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="inputl"
+                type="text"
+                name="tiempo"
+                placeholder="Tiempo de preparación *"
+                required
+                onChange={(e) => setTiempo(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="inputl"
+                type="text"
+                name="ingredientes"
+                placeholder="Ingrese los ingredientes, ejemplo: 1kg Azucar, 2 huevos, ... *"
+                required
+                onChange={(e) => setIng(e.target.value)}
+              />
+            </div>
+            <div className="input-div">
+              <input
+                className="inputl"
+                type="text"
+                name="preparacion"
+                placeholder="Ingrese la preparación *"
+                required
+                onChange={(e) => setPre(e.target.value)}
+              />
+            </div>
+            <div className="button-div">
+              <button className="submit" onClick={(e) => Recetas(e)}>
+                Guardar
               </button>
             </div>
           </div>
