@@ -20,7 +20,7 @@ const {listarsolicitudes} = require('../controllers/Solicitudes/listarsolicitude
 //Controlador Recetas
 const {recetasSoli} = require('../controllers/Recetas/recetas')
 const {listarrecetas} = require('../controllers/Recetas/listarrecetas')
-
+const {filtrarrecetas} = require('../controllers/Recetas/filtrar_recetas')
 
 // ----------- Rutas ---------------
 
@@ -40,5 +40,6 @@ router.get("/listarsolicitudes", listarsolicitudes)
 //Rutas Recetas
 router.post("/recetas", recetasSoli)
 router.get("/listarrecetas", listarrecetas)
+router.get("/filtrarrecetas", filtrarrecetas)
 
 module.exports = router;
