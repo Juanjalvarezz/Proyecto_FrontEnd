@@ -70,14 +70,14 @@ function Recetario_Com() {
             <div className="conta">
               <img src={pollo} alt="Pollo " />
               <div className="content">
-                <a href="#Pollo">Recetas con Pollo</a>
+                <a>Recetas con Pollo</a>
               </div>
             </div>
 
             <div className="conta">
               <img src={carne} alt="Carne " />
               <div className="content">
-                <a href="#Carne">Recetas con Carne</a>
+                <a>Recetas con Carne</a>
               </div>
             </div>
           </div>
@@ -86,14 +86,14 @@ function Recetario_Com() {
             <div className="conta">
               <img src={pescado} alt="Pescado " />
               <div className="content">
-                <a href="#Pescado">Recetas con Pescado</a>
+                <a>Recetas con Pescado</a>
               </div>
             </div>
 
             <div className="conta">
               <img src={cerdo} alt="Cerdo " />
               <div className="content">
-                <a href="#Cerdo">Recetas con Cochino</a>
+                <a>Recetas con Cochino</a>
               </div>
             </div>
           </div>
@@ -104,14 +104,14 @@ function Recetario_Com() {
             <div className="conta">
               <img src={Fit} alt="Fit " />
               <div className="content">
-                <a href="#Fit">Recetas Fit</a>
+                <a>Recetas Fit</a>
               </div>
             </div>
 
             <div className="conta">
               <img src={BajaCalorias} alt="Caloria " />
               <div className="content">
-                <a href="#Calorias">Recetas baja en calorias</a>
+                <a>Recetas baja en calorias</a>
               </div>
             </div>
           </div>
@@ -120,14 +120,14 @@ function Recetario_Com() {
             <div className="conta">
               <img src={galletas} alt="Postres " />
               <div className="content">
-                <a href="#Postres">Postres</a>
+                <a>Postres</a>
               </div>
             </div>
 
             <div className="conta">
               <img src={PostreSaludable} alt="Postres Saludables " />
               <div className="content">
-                <a href="#Saludables">Postres Saludables</a>
+                <a>Postres Saludables</a>
               </div>
             </div>
           </div>
