@@ -789,6 +789,7 @@ cursor: pointer;
 display: flex;
 align-items: center;
 margin-bottom: 8px;
+color: white;
 }
 
 .gender-option input[type="checkbox"] {
