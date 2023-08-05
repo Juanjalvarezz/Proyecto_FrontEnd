@@ -18,6 +18,16 @@ function Recetario_Com() {
     fetch("http://localhost:3000/listarrecetas").then((res) => res.json())
   );
 
+  const separacion = (ingredientes) => {
+    const lista = ingredientes.split(",");
+    return (
+      <>
+        {lista.map((ingrediente) => (
+          <li>{ingrediente}</li>
+        ))}
+      </>
+    );
+  };
   return (
     <section>
       <div>
@@ -138,8 +148,10 @@ function Recetario_Com() {
                           <b>Ingredientes:</b>
                         </h3>
                         <ul>
-                          <li>Tiempo de Preparación: {receta.tiempo_preparación}</li>
-                          {receta.ingredientes}
+                          <li>
+                            Tiempo de Preparación: {receta.tiempo_preparación}
+                          </li>
+                          {separacion(receta.ingredientes)}
                         </ul>
                       </div>
                       <div className="Contenidos-2">
