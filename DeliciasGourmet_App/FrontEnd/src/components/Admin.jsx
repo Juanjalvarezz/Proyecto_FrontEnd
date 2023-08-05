@@ -299,7 +299,7 @@ function Admin() {
                 onChange={(e) => setPass(e.target.value)}
               />
             </div>
-            <div className="gender-selection">
+            <div className="gender-selection main">
               <label className={`gender-option ${isMale ? "selected" : ""}`}>
                 <input
                   type="checkbox"
