@@ -1,9 +1,4 @@
 import React from 'react'
-import cremaCalabaza  from "../assets/cremaCalabaza.jpg"
-import SalmonHorno  from "../assets/salmonHorno.jpg"
-import TartaletasManzana  from "../assets/tartaletasManzana.jpg"
-import TostadaQueso  from "../assets/tostadaQueso.jpg"
-import ColiflorHorno  from "../assets/coliflorHorno.png"
 import { useQuery } from "react-query";
 
 
